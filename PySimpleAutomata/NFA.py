@@ -351,12 +351,12 @@ def rename_nfa_states(nfa: dict, suffix: str):
     new_initials = set()
     new_accepting = set()
     for state in nfa['states']:
-        conversion_dict[state] = '' + suffix + state
-        new_states.add('' + suffix + state)
+        conversion_dict[state] = '' + suffix + str(state)
+        new_states.add('' + suffix + str(state))
         if state in nfa['initial_states']:
-            new_initials.add('' + suffix + state)
+            new_initials.add('' + suffix + str(state))
         if state in nfa['accepting_states']:
-            new_accepting.add('' + suffix + state)
+            new_accepting.add('' + suffix + str(state))
 
     nfa['states'] = new_states
     nfa['initial_states'] = new_initials
